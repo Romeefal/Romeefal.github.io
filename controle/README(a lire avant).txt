@@ -12,3 +12,4 @@ De meme pour l'image il aurait fallu ecrire cela :
 body {
   background-image: url("\\wsl.localhost\Ubuntu\home\romy\pw\Romeefal.github.io\controle\cement.jpg");
 } 
+Ainsi a la place de l'image j'ai mis un fond d'ecran vert. 
