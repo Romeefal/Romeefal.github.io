@@ -1,0 +1,17 @@
+body {background-image: url("\\wsl.localhost\Ubuntu\home\romy\pw\Romeefal.github.io\controle\cement.jpg"); }
+h1 {
+    text-align: center;
+  }
+  h2 {background-color:grey; color:blue;
+}
+p{
+    text-align: justify;
+    margin-left:16px;
+  }
+  p.surligne {background-color: seashell;}
+  div p {background-color:slateblue;}
+  span.surligne {color:yellow;}
+  ol {
+    list-style-type: upper-roman;
+  }
+  
