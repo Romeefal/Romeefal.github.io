@@ -19,13 +19,15 @@ print (n) #ici je demande a ma fonction d'afficher le resultat
     #cette fonction est la fonction round()
     #exemple suivant x = round(5.76543, 2)
     #print(x)
+    #si l'on revient à notre fonction a nous quand on la teste normalement il suffit d'entrer la commande suivante au moment du teste : print(lechiffreavirguledésiree+n) ensuite le chiffre a virgule sera donc arrondis. 
 
 #Ceci est l'exercice 2. 
 
 #Ici l'on souhaite une fonction prenant en entrée une distance (un nombre entier, en km) et renvoyant le prix (en €) d’un trajet. 
 def prixkm(distance:int)->float:
     """prend une distance en km et renvoie le prix en euros"""
-distance=0
+distance=()
+i=0
 i=len(distance)
 for i in range (0,16): #a partir de cette ligne je demande a la fonction de renvoyer selon la place de i dans la fonction (le kilometrage) le prix correspondant. Donc je prend bien un "int"en entree pour renvoyer un "float" en sortie
     print (0.7781+distance*0.1944)
@@ -47,7 +49,7 @@ for i in range (0,16): #a partir de cette ligne je demande a la fonction de renv
                                 print(18.4449+distance*0.0921)
                                 if i>800:
                                     print(32.2041+distance*0.0755)
-                                print (i) 
+                                print (i) #in fine la fonction affichera le prix correspondant selon le kilometrage.
 
 #ceci est l'exercice 3 
 
@@ -55,6 +57,7 @@ for i in range (0,16): #a partir de cette ligne je demande a la fonction de renv
 #au sein de cette fonction il suffit normalement d'appeler la fonction que nous avons déjà definis avec prixkm et de le multiplier par 1.5
 def prixkm1ere(x:float)->float:
     """prend le prix de la seconde classe et affiche le prix de la premiere classe en faisant fois 1.5"""
+    m=0
     m=prixkm*1.5
     print(m)
 
@@ -63,7 +66,7 @@ def prixkm1ere(x:float)->float:
 #au sein de cette fonction l'on cherche a afficher les prix plafond des TER intercites. 
 def prix_speciaux_max(entree:float)->any:
     """prend le bareme kilometrique et le multiplie par 2.1"""
-    entree=0
+    entree=0 #ici l'entrée correspond au bareme kilometrique elle commence au départ (0) mais il conviendra alors de prendre en entrée le bareme kilometrique souhaité comme (a euros + b euros/km+ Km exactes du trajet)
     i=len(entree)
     for i in entree : #a partitr de cette ligne je demande a la fonction que pour toutes les variables de entree denomee ici i 
         i[entree]=entree*2.1 #ces variables soient multipliées par 2.1 
@@ -77,15 +80,35 @@ def prix_speciaux_max(entree:float)->any:
 #si les deux gares n'existent pas un message d'erreur devra s'afficher 
 #par ailleurs si il y a une erreur dans la distance entre les gares "-1" devra s'afficher. 
 
-def lesdeuxgares(gare1:str,gare2:str)->str: 
+def lesdeuxgares(gare1:tuple[str,str,int],gare2:tuple[str,str,int])->tuple[str,str,int,str,float,str]: 
     """prend en entree deux gares et selon si elles existent dans la liste affiche en sorties certaines indications """
     a = open(distance.csv, mode = "r")
     l = a.readline()
-    i=0  #i est une variable qui va se deplacer dans la chaine de chaque ligne et elle commence à l'indicateur 0 de l'index. Donc elle commence au debut du fichier csv
-    for i in l[a]: #ici j'indique que pour chacune des variable de l[a] c'est a dire, pour i sur la lecture de chaque ligne du fichier csv
-        if i in l[a]:#si i est bien sur la lecture de chaque ligne du fichier csv
-            print ("la distance entre la gare",i,"et") #a continuer de refchir dessus 
+    gare1=l #gare1 est une variable qui va se deplacer dans la chaine de chaque ligne et elle commence à l'indicateur 0 de l'index. Donc elle commence au debut du fichier csv
+    gare1=l[0][1][2] #j'ennonce a ma fonction que la premiere gare se trouve soit à l'index 0 dans ma chaine , soit à l'index 1 selon les lignes du csv (comme a la fin de la chaine se trouve la distance d'affiché)
+    gare2=l #idem pour gare2 qui peut aussi etre une gare du csv au meme titre que la gare1  
+    gare2=l[0][l][2]
+    for gare1 in l[a]: #ici j'indique que pour chacune des variable de l[a] c'est a dire, pour i sur la lecture de chaque ligne du fichier csv
+        if gare1 in l[a]:#si i est bien sur la lecture de chaque ligne du fichier csv
+            print ("la distance entre la gare",gare1[0][1],"et",gare2[0][1],"est de",gare1[2]+gare2[2],"km") #ici concretement , si le tuple est bien présent dans le fichier csv alors on demande a la fonction d'afficher du texte + le nom de la gare à l'index[0], avec le chiffre à l'index[2], et le deuxieme nom de la gare à l'index [1]
+        else:
+          print ("cette gare n'existe pas") #chaine de caractere affichée si la gare n'existe pas 
+   
+    for gare1  in l[a]:  #à partir de cette ligne j'indique à ma fonction que pour la gare1 si elle se trouve dans le CSV
+        while gare1[2]+gare2[2] in l[a]: #tant que  l'addition des kilometrages se trouve à l'index[2] de chacune des lignes (donc pour toutes gare soit gare1 ou gare2) , dans le csv
+            return gare1[2]+gare2[2] #alors la fonction devra afficher le chiffre qui resulte de l'addition des int des index[2] de chacune des gares demandées 
+        
+        
+        while gare1[2]+gare2[2] in l[a]: #je continue ici dans le meme sens , on verifie toujours que les gares demandées existent dans le csv 
+            distance=gare1[2]+gare2[2] #ici j'indique a ma fonction que l'addition gare1[2]+gare2[2] c'est égal a la variable de distance , or cette distance est aussi utilisée dans la mise en place de la fonction prixkm
+            print (prixkm) #la fonction devra alors imprimer le resultat que la fonction prixklm lui donne quand elle prend en entree la distance parcourue pour obtenir le prix du trajet. 
+        else:
+          print("cette gare n'existe pas")
+        break
+          #je conclue ici l'aborieusement le projet du jour. je me doute que mon travail est loin d'etre parfait et sans nulle doute doit piquer les yeux mais j'espère avoir au moins sur certaines fonctions au moins m'etre rapprochée d'une solution possible. 
+          #comme beaucoup je me suis donnée à fond dans ce travail. 
+         
+
+
     
-#reflechis concretement tu lis une ligne sur chaque ligne tu as 2 variable une str , une int(ou float) il faut que en premier lieux la fonction reconnaise ligne par ligne si une gare existe 
-#ensuite la fonction est plus complexe car on souhaite afficher la distance entre les 2 gares et selon la distance le prix qui correspond 
-#pour le prix on peut eventuellement appeler une fonction deja faite 
+

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Bienvenu sur l'espace de demandes de droits</h1>
+
+<h3>Qui etes vous ?</h3>
+
+<fieldset>
+    <legend>Merci de selectionner votre categorie sociale</legend>
+
+    <div>
+      <input type="radio" id="student" name="student" value="student"
+             checked>
+      <label for="etudiant">Etudiant</label>
+    </div>
+
+    <div>
+      <input type="radio" id="admin" name="admin" value="admin">
+      <label for="admin">Administration</label>
+    </div>
+
+    <div>
+      <input type="radio" id="professeurs" name="professeurs" value="professeurs">
+      <label for="professeurs">Professeurs</label>
+    </div>
+</fieldset>
+
+<h3> Choissisez votre type de demande</h3>
+
+<select name="demande de droit" id="demande de droit">
+    <option value="">--Choisissez une option--</option>
+    <option value="opposition">opposition</option>
+    <option value="minimisation">minimisation</option>
+    <option value="suppression">suppression</option>
+    <option value="anonymisation">anonymisation</option>
+    <option value="conatct et plus">contact et plus</option>
+    <option value="FAQ">FAQ</option>
+</select>
+
+
+
+<div class="contactez-nous">
+<h3>Une demande supplémentaire ? Remplissez le formulaire!</h3> 
+<p> Nous répondrons dans les meilleurs délais!</p>
+<form action="/page-traitement-donnees" method="post">
+<div>
+<label for="nom">Votre nom</label>
+<input type="text" id="nom" name="nom" placeholder="Martin" required>
+</div>
+<div>
+<label for="email">Votre e-mail</label>
+<input type="email" id="email" name="email" placeholder="monadresse@mail.com" required>
+</div>
+<div>
+<label for="sujet">Quel est le sujet de votre message ?</label>
+<select name="sujet" id="sujet" required>
+<option value="" disabled selected hidden>Choisissez le sujet de votre message</option>
+<option value="DROITS">violation de mes droits</option>
+<option value="RGPD">qu'est ce que le RGPD</option>
+<option value="suivis de ma demande">Suivi de ma commande</option>
+<option value="autre">Autre...</option>
+</select>
+</div>
+<div>
+<label for="message">Votre message</label>
+<textarea id="message" name="message" placeholder="Bonjour, je vous contacte car...." required></textarea>
+</div>
+<div>
+<button type="submit">Envoyer mon message</button>
+</div>
+</form>
+</div>
+ 
+</body>
+</html>
+
