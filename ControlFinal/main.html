@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+<img src="https://cfa.u-pec.fr/medias/photo/upec-cfa-logo-web-footer-rvb-246x120_1624869740854-png?ID_FICHE=6219" alt="logo Upec" title="Accueil" id="logo"/>  
+  <title> Controle Programmation</title>
+  <style>
+    body{background-color: violet; font-family:Calibri;}
+  </style>
+<link rel="stylesheet" type="text/css" href="mainPDF.css" media="print">
+</head>
+  
+  <body>
+
+<h1> Ma lettre de demande</h1>
+<div id="qui">
+<h3><u>Qui êtes vous ?</u></h3>
+</div>
+
+<!--A partir de ce point je code la "boite" qui sert a cocher les cases-->
+
+<fieldset id="box">
+    <legend>Merci de selectionner votre categorie sociale</legend>
+
+  <div>
+  <input type="checkbox" id="case1" name="groupe1" value="case 1" checked>
+  <label for="case1">Demandeur de droit</label>
+</div>
+
+<br>
+<div>
+  <input type="checkbox" id="case2" name="groupe1" value="case 2">
+  <label for="case2">Etudiant </label>
+</div>
+<br>
+<div>
+  <input type="checkbox" id="case3" name="groupe1" value="case 3">
+  <label for="case3">Professeur</label>
+</div>
+</fieldset>
+<!--ici je code la demande d'information-->
+<h3> <div id="infos">La faculté a-t-elle le droit d'enregistrer mes informations personnelles ?</h3> 
+<br>
+      <button id="bouton1" type = "button" onclick = 
+            "alert('Cet avis sera notifié à l'administration')"> 
+            ACCEPTER 
+        </button>
+
+        <button id="bouton2" type = "button" onclick = 
+            "alert('Nous n'enregistrons pas vos informations')"> 
+            REFUSER 
+        </button> 
+
+<!--ici je code l'espace de contact, c'est le contenu de la lettre a proprement parler-->
+<div class="contactez-nous">
+<h1>Ma demande</h1>
+<p> La faculté de droit Paris est Créteil est responsable des demandes des étudiants , des professeurs et des demandeurs de droits , n'hésitez pas à nous préciser vos demandes</p>
+<form action="/page-traitement-donnees" method="post">
+<div>
+<h4> <u>Identification de la demande</u></h4>
+<label for="nom">Date</label>
+<input type="text" id="nom" name="nom" placeholder="date du jour" required>
+<label for="nom">Lieu</label>
+<input type="text" id="nom" name="nom" placeholder="lieu de la demande" required>
+
+<h4><u> Quelques spécifications</u></h4>
+<h5> Comment nous adressons nous à vous ? </h5>
+<select name="demande de droit" id="demande de droit">
+    <option value="">--Dénomination--</option>
+    <option value="Monsieur">Monsieur</option>
+    <option value="Madame">Madame</option>
+    <option value="Autre">Autre</option>
+</select>
+<h5> Comment vous identifiez vous ? </h5>
+
+<label for="Prénom">Prénom</label>
+<input type="text" id="nom" name="nom" placeholder="Martin" required>
+<label for="Nom">Nom</label>
+<input type="text" id="nom" name="nom" placeholder="Martin" required>
+<label for="email">Votre e-mail</label>
+<input type="email" id="email" name="email" placeholder="monadresse@mail.com" required>
+
+<h4> <u>A qui souhaitez vous , vous adresser ? </u></h4>
+<label for="nom">Destinataire</label>
+<input type="text" id="nom" name="nom" placeholder="Martin" required>
+</div>
+
+<div>
+<h4> <u>Merci de remplir votre demande</u> </h4>
+
+<select name="sujet" id="sujet" required>
+<option value="" disabled selected hidden>Choisissez le sujet de votre message</option>
+    <option value="vie admin">Vie administrative</option>
+    <option value="alternance">alternance</option>
+    <option value="notation">Notation</option>
+    <option value="autre">Autre...</option>
+</select>
+</div>
+<div>
+<label for="message">Votre message</label>
+<textarea id="message" name="message" placeholder="Bonjour, je vous contacte car...." required></textarea>
+</div>
+<div id="envoyer">
+<button type="submit">Envoyer mon message</button>
+</div>
+</form>
+</div>
+  </body>
+
+  </html>
+
+
+
